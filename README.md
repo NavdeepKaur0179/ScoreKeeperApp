@@ -9,20 +9,26 @@ ShapeDrawables
 Styles-extracting,defining,adding parent style.
 Theme for whole app
 
-//For Night Mode
-if(item.getItemId()==R.id.night_mode){
-    // Get the night mode state of the app.
-    int nightMode = AppCompatDelegate.getDefaultNightMode();
-    //Set the theme mode for the restarted activity
-    if (nightMode == AppCompatDelegate.MODE_NIGHT_YES) {
-        AppCompatDelegate.setDefaultNightMode
-                          (AppCompatDelegate.MODE_NIGHT_NO);
-} else {
-   AppCompatDelegate.setDefaultNightMode
-                         (AppCompatDelegate.MODE_NIGHT_YES);
-}
+For night mode in MainActivity 
+@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //Check if the correct item was clicked
+        if (item.getItemId() == R.id.night_mode) {
+            // Get the night mode state of the app.
+            int nightMode = AppCompatDelegate.getDefaultNightMode();
+            //Set the theme mode for the restarted activity
+            if (nightMode == AppCompatDelegate.MODE_NIGHT_YES) {
+                AppCompatDelegate.setDefaultNightMode
+                        (AppCompatDelegate.MODE_NIGHT_NO);
+            } else {
+                AppCompatDelegate.setDefaultNightMode
+                        (AppCompatDelegate.MODE_NIGHT_YES);
+            }
 // Recreate the activity for the theme change to take effect.
-recreate();
+            recreate();
+        }
+        return true;
+    }
 
 //Drawable Selectors
 To change button background and img src on pressed, sample code
